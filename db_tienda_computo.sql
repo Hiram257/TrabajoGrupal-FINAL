@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50649
 File Encoding         : 65001
 
-Date: 2023-05-28 00:12:01
+Date: 2023-05-28 10:32:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,10 +30,6 @@ CREATE TABLE `asistencia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
--- Records of asistencia
--- ----------------------------
-
--- ----------------------------
 -- Table structure for cargo
 -- ----------------------------
 DROP TABLE IF EXISTS `cargo`;
@@ -41,11 +37,7 @@ CREATE TABLE `cargo` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tipo_cargo` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of cargo
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for cliente
@@ -56,11 +48,7 @@ CREATE TABLE `cliente` (
   `dni` varchar(10) DEFAULT NULL,
   `nombre_apellido` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of cliente
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for configuracion
@@ -74,10 +62,6 @@ CREATE TABLE `configuracion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
--- Records of configuracion
--- ----------------------------
-
--- ----------------------------
 -- Table structure for detalle_venta
 -- ----------------------------
 DROP TABLE IF EXISTS `detalle_venta`;
@@ -86,16 +70,13 @@ CREATE TABLE `detalle_venta` (
   `id_venta` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL,
   `cantidad` int(11) NOT NULL,
+  `precio_total` double(10,3) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `detalle_venta_fk0` (`id_venta`),
   KEY `id_producto` (`id_producto`),
   CONSTRAINT `detalle_venta_fk0` FOREIGN KEY (`id_venta`) REFERENCES `venta` (`id`),
   CONSTRAINT `detalle_venta_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of detalle_venta
--- ----------------------------
 
 -- ----------------------------
 -- Table structure for familia
@@ -108,10 +89,6 @@ CREATE TABLE `familia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
--- Records of familia
--- ----------------------------
-
--- ----------------------------
 -- Table structure for marca
 -- ----------------------------
 DROP TABLE IF EXISTS `marca`;
@@ -119,11 +96,7 @@ CREATE TABLE `marca` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_marca` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of marca
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for personal
@@ -140,11 +113,7 @@ CREATE TABLE `personal` (
   PRIMARY KEY (`id`),
   KEY `id_cargo` (`id_cargo`),
   CONSTRAINT `personal_ibfk_1` FOREIGN KEY (`id_cargo`) REFERENCES `cargo` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of personal
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for producto
@@ -174,10 +143,6 @@ CREATE TABLE `producto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
--- Records of producto
--- ----------------------------
-
--- ----------------------------
 -- Table structure for provedores
 -- ----------------------------
 DROP TABLE IF EXISTS `provedores`;
@@ -192,10 +157,6 @@ CREATE TABLE `provedores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
--- Records of provedores
--- ----------------------------
-
--- ----------------------------
 -- Table structure for ubicacion
 -- ----------------------------
 DROP TABLE IF EXISTS `ubicacion`;
@@ -203,11 +164,7 @@ CREATE TABLE `ubicacion` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre_ubicacion` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of ubicacion
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Table structure for venta
@@ -218,7 +175,7 @@ CREATE TABLE `venta` (
   `id_cliente` int(11) NOT NULL,
   `id_personal` int(11) NOT NULL,
   `numero_serie` int(255) NOT NULL,
-  `total` decimal(10,0) NOT NULL,
+  `total` decimal(10,3) NOT NULL,
   `fecha_hora` datetime NOT NULL,
   `cantidad_producto` int(11) NOT NULL,
   `estado_pago` int(11) NOT NULL,
@@ -227,8 +184,4 @@ CREATE TABLE `venta` (
   KEY `id_personal` (`id_personal`),
   CONSTRAINT `venta_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id`),
   CONSTRAINT `venta_ibfk_2` FOREIGN KEY (`id_personal`) REFERENCES `personal` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- ----------------------------
--- Records of venta
--- ----------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
