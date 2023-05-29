@@ -31,7 +31,8 @@
           
          
             <input id="id_proveedor" class="input_info" type="tel" placeholder="provedor">
-            <button class="register_btn" type="submit">Actualizar producto</button>
+             <input class="input_info" type="file" name="archivo">
+            <button class="register_btn" type="submit">Registrar producto</button>
         </form>
 
 
