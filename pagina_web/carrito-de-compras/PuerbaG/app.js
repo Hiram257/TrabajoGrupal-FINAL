@@ -6,7 +6,7 @@ fetch('http://localhost/PuerbaG/listar_producto.php')
         respuesta.forEach(elemento=>{
         tabla.innerHTML+=`<div class="item">
       <span class="titulo-item">${elemento.descripcion}</span>
-      <img src="image/img1.jpg" alt="" class="img-item">
+      <img src="fotos_productos/${elemento.imagenes}" alt="" class="img-item">
       <span class="precio-item">${elemento.precio}</span>
       <button class="boton-item">Agregar al Carrito</button>
   </div>`
