@@ -6,7 +6,7 @@ include 'conexion.php';
 $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
 
 // Consulta SQL para obtener los datos filtrados por estado
-$sql = "SELECT id,descripcion,precio,stock,codigo_producto,id_marca,id_familia,nombre,id_ubicacion,estado_producto,id_proveedor,image, FROM producto";
+$sql = "SELECT id,descripcion,precio,stock,codigo_producto,id_marca,id_familia,nombre,id_ubicacion,estado_producto,id_proveedor,imagenes FROM producto";
 
 $respuesta=mysqli_query($conn,$sql);
 // Devolver la lista JSON como respuesta
