@@ -6,7 +6,7 @@ fetch('http://localhost/tienda_computo/TrabajoGrupal-FINAL/pagina_web/carrito-de
         respuesta.forEach(elemento=>{
         tabla.innerHTML+=`<div class="item">
       <span class="titulo-item">${elemento.descripcion}</span>
-      <img src="image/img1.jpg" alt="" class="img-item">
+      <img src="fotos_productos/${elemento.imagenes}" alt="" class="img-item">
       <span class="precio-item">${elemento.precio}</span>
       <span class="id_item">${elemento.id}</span>
       <button class="boton-item">Agregar al Carrito</button>
@@ -95,7 +95,7 @@ function pagarClicked() {
     "id_personal": idPersonal,
     "numero_serie": numeroSerie,
     "total": total,
-    "cantidad_producto": 1,
+    "cantidad_producto": item.length,
     "estado_pago": 1,
     "detalle_venta": detalleVenta
   };
@@ -299,4 +299,11 @@ function actualizarTotalCarrito() {
 }
     }
 
+
     );
+
+        
+
+
+ 
+

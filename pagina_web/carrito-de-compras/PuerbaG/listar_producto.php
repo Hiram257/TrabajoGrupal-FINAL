@@ -3,7 +3,6 @@
 include 'conexion.php';
 
 // Permitir solicitudes desde cualquier origen
-
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type");
 
@@ -16,10 +15,11 @@ if (!empty($nombre)) {
     $sql .= " WHERE nombre LIKE '%$nombre%'";
 }
 
+// Ejecutar la consulta SQL
 $respuesta = mysqli_query($conn, $sql);
 
 // Verificar si se obtuvieron resultados
-if (mysqli_num_rows($respuesta) > 0) {
+if ($respuesta && mysqli_num_rows($respuesta) > 0) {
     // Convertir los resultados a un arreglo asociativo
     $datos = mysqli_fetch_all($respuesta, MYSQLI_ASSOC);
     // Devolver los datos en formato JSON
@@ -30,5 +30,8 @@ if (mysqli_num_rows($respuesta) > 0) {
 }
 
 // Cerrar la conexión a la base de datos
-$conn->close();
+mysqli_close($conn);
 ?>
+
+
+

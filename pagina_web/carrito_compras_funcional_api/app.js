@@ -1,4 +1,4 @@
-fetch('http://localhost/tienda_computo/TrabajoGrupal-FINAL/pagina_web/carrito-de-compras/PuerbaG/listar_producto.php')
+fetch('http://localhost/tienda_computo/TrabajoGrupal-FINAL/pagina_web/carrito_compras_funcional_api/listar_producto.php')
     .then(resultado=> resultado.json()) 
     .then(respuesta=>{
       var tabla = document.querySelector('.contenedor-items');
@@ -95,14 +95,14 @@ function pagarClicked() {
     "id_personal": idPersonal,
     "numero_serie": numeroSerie,
     "total": total,
-    "cantidad_producto": 1,
+    "cantidad_producto": carritoItems.length,
     "estado_pago": 1,
     "detalle_venta": detalleVenta
   };
 console.log(ventaData)
 
 // Enviar los datos al servidor utilizando tu API
-fetch('http://localhost/tienda_computo/TrabajoGrupal-FINAL/pagina_web/carrito-de-compras/PuerbaG/registro_detalle_venta.php', {
+fetch('http://localhost/tienda_computo/TrabajoGrupal-FINAL/pagina_web/carrito_compras_funcional_api/registro_detalle_venta.php', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
