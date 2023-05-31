@@ -6,7 +6,7 @@
 	$sql = "SELECT * FROM personal WHERE id = '$id'";
 	$resultado = $conn->query($sql);
 	$row = $resultado->fetch_array(MYSQLI_ASSOC);
-	
+	$cargos = $conn->query("SELECT * from cargo");
 ?>
 <html lang="es">
 	<head>
@@ -24,7 +24,7 @@
 				<h3 style="text-align:center">MODIFICAR REGISTRO</h3>
 			</div>
 			
-			<form class="form-horizontal" method="POST" action="update.php" autocomplete="off">
+			<form class="form-horizontal" method="POST" action="update.php" autocomplete="off" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="nombre" class="col-sm-2 control-label">Nombre y Apellidos</label>
 					<div class="col-sm-10">
@@ -37,25 +37,29 @@
 				<div class="form-group">
 					<label for="dni" class="col-sm-2 control-label">DNI</label>
 					<div class="col-sm-10">
-						<input type="dni" class="form-control" id="dni" name="dni" placeholder="DNI" value="<?php echo $row['dni']; ?>"  required>
+						<input type="number" class="form-control" id="dni" name="dni" placeholder="DNI" value="<?php echo $row['dni']; ?>"  required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="foto" class="col-sm-2 control-label">Foto</label>
 					<div class="col-sm-10">
-						<input type="foto" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo $row['foto']; ?>"  required>
+						<input type="file" accept="image/*" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo $row['foto']; ?>"  required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="cargo" class="col-sm-2 control-label">Cargo</label>
 					<div class="col-sm-10">
-						<input type="cargo" class="form-control" id="cargo" name="cargo" placeholder="Cargo" value="<?php echo $row['id_cargo']; ?>"  required>
+						<select class="form-control" id="cargo" name="cargo" required>
+						<?php while($cargo = $cargos->fetch_array(MYSQLI_ASSOC)) { ?>
+							<option value=<?php echo $cargo['id']?> <?php if($row['id_cargo']==$cargo['id']) echo 'selected'; ?>><?php echo $cargo['tipo_cargo']?></option>
+						<?php } ?>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="contra" class="col-sm-2 control-label">Contraseña</label>
 					<div class="col-sm-10">
-						<input type="contra" class="form-control" id="contra" name="contra" placeholder="Contraseña" value="<?php echo $row['contrasena']; ?>" required >
+						<input type="password" class="form-control" id="contra" name="contra" placeholder="Contraseña" value="<?php echo $row['contrasena']; ?>" required >
 					</div>
 				</div>
 				

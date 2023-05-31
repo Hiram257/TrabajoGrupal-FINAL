@@ -3,23 +3,49 @@
 	require 'conexion.php';
 	
 	$dni = $_POST['dni'];
-    $foto = $_POST['foto'];
     $nombre_apellido = $_POST['nombre'];
     $contrasena = $_POST['contra'];
     $estado_personal =(int) $_POST['estado'];
     $id_cargo = $_POST['cargo'];
 
+	if (isset($_FILES['foto']) && isset($_POST['dni'])) {
 
+		// nombre de la imagen
+		$nombre = $_FILES['foto']['name'];
+		$foto = $dni . '/' . $nombre;
+		// extension de la imagen
+		$extension = pathinfo($nombre, PATHINFO_EXTENSION);
+	  
+		// verificar que sea una imagen
+		if (in_array($extension, ['jpg', 'jpeg', 'png'])) {
+	  
+		  // crear la carpeta del personal si no existe
+		  if (!file_exists('fotos/' . $dni)) {
+			mkdir('fotos/' . $dni, 0777, true);
+		  }
+	  
+		  // copiamos la imagen a la carpeta
+		  move_uploaded_file($_FILES['foto']['tmp_name'], 'fotos/' . $foto);
+	
+		  // Insertar los datos en la tabla "empresas"
+		
+		  $sql = "INSERT INTO personal (dni,foto,nombre_apellido,contrasena,estado_personal,id_cargo) VALUES ('$dni','$foto','$nombre_apellido','$contrasena','$estado_personal','    $id_cargo')";
+	
+		  $resultado = $conn->query($sql);
+	  
+		} else {
+	  
+		  // Error!
+		  echo 'No es una imagen!';
+	  
+		}
+	  
+	  }
    
     
-    // Insertar los datos en la tabla "empresas"
     
-	$sql = "INSERT INTO personal (dni,foto,nombre_apellido,contrasena,estado_personal,id_cargo) VALUES ('$dni','$foto','$nombre_apellido','$contrasena','$estado_personal','    $id_cargo')";
-	
+    
 
-	
-	
-	$resultado = $conn->query($sql);
 	
 ?>
 

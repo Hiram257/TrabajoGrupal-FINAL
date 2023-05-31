@@ -1,3 +1,8 @@
+<?php
+	require 'conexion.php';
+	
+	$cargos = $conn->query("SELECT * from cargo");
+?>
 <html lang="es">
 	<head>
 		
@@ -14,7 +19,7 @@
 				<h3 style="text-align:center">NUEVO REGISTRO</h3>
 			</div>
 			
-			<form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off">
+			<form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="nombre" class="col-sm-2 control-label">Nombre y Apellidos</label>
 					<div class="col-sm-10">
@@ -27,25 +32,29 @@
 				<div class="form-group">
 					<label for="dni" class="col-sm-2 control-label">DNI</label>
 					<div class="col-sm-10">
-						<input type="dni" class="form-control" id="dni" name="dni" placeholder="DNI" required>
+						<input type="number" class="form-control" id="dni" name="dni" placeholder="DNI" required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="foto" class="col-sm-2 control-label">Foto</label>
 					<div class="col-sm-10">
-						<input type="foto" class="form-control" id="foto" name="foto" placeholder="Foto" required>
+						<input type="file" accept="image/*" class="form-control" id="foto" name="foto" placeholder="Foto" value="<?php echo $row['foto']; ?>"  required>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="cargo" class="col-sm-2 control-label">Cargo</label>
 					<div class="col-sm-10">
-						<input type="cargo" class="form-control" id="cargo" name="cargo" placeholder="Cargo" required>
+						<select class="form-control" id="cargo" name="cargo" required>
+						<?php while($cargo = $cargos->fetch_array(MYSQLI_ASSOC)) { ?>
+							<option value=<?php echo $cargo['id']?>><?php echo $cargo['tipo_cargo']?></option>
+						<?php } ?>
+						</select>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="contra" class="col-sm-2 control-label">Contraseña</label>
 					<div class="col-sm-10">
-						<input type="contra" class="form-control" id="contra" name="contra" placeholder="Contraseña" required>
+						<input type="password" class="form-control" id="contra" name="contra" placeholder="Contraseña" required>
 					</div>
 				</div>
 				
