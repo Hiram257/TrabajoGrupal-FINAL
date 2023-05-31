@@ -7,10 +7,10 @@
 	{
 		$valor = $_POST['campo'];
 		if(!empty($valor)){
-			$where = "WHERE nombre_apellido LIKE '%$valor'";
+			$where = "WHERE tipo_cargo LIKE '%$valor'";
 		}
 	}
-	$sql = "SELECT * FROM personal $where ORDER BY nombre_apellido ASC";
+	$sql = "SELECT * FROM cargo $where ORDER BY tipo_cargo ASC";
 	$resultado = $conn->query($sql);
 	
 ?>
@@ -27,14 +27,14 @@
 		
 		<div class="container">
 			<div class="row">
-				<h2 style="text-align:center">PERSONAL</h2>
+				<h2 style="text-align:center">CLIENTE</h2>
 			</div>
 			
 			<div class="row">
 				<a href="nuevo.php" class="btn btn-primary">Nuevo Registro</a>
 				
 				<form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
-					<b>Nombre: </b><input type="text" id="campo" name="campo" />
+					<b>Cargo: </b><input type="text" id="campo" name="campo" />
 					<input type="submit" id="enviar" name="enviar" value="Buscar" class="btn btn-info" />
 				</form>
 			</div>
@@ -48,12 +48,7 @@
 						<tr>
 
 							<th>ID</th>
-							<th>Nombres y Apellidos</th>
-							<th>DNI</th>
-							<th>Estado Personal</th>
 							<th>Cargo</th>
-							<th>Foto</th>
-							<th>Contraseña</th>
 							<th></th>
 							<th></th>
 
@@ -64,25 +59,7 @@
 						<?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
 							<tr>
 								<td><?php echo $row['id']; ?></td>
-								<td><?php echo $row['nombre_apellido']; ?></td>
-								<td><?php echo $row['dni']; ?></td>
-								<td>
-									<?php
-										if($row['estado_personal']=='1') {
-											echo "ACTIVO"; 
-										} else {
-											echo "INACTIVO";
-										}
-									?>
-								</td>
-								<td>
-									<?php
-										$id_cargo = $row['id_cargo'];
-										echo $conn->query("SELECT * FROM cargo WHERE id=$id_cargo")->fetch_array(MYSQLI_ASSOC)['tipo_cargo'];
-									?>
-								</td>
-								<td><?php echo $row['foto']; ?></td>
-								<td><?php echo $row['contrasena']; ?></td>
+								<td><?php echo $row['tipo_cargo']; ?></td>
 								<td><a href="modificar.php?id=<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
 								<td><a href="#" data-href="eliminar.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>

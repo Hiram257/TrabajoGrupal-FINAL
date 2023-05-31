@@ -10,7 +10,7 @@
 			$where = "WHERE nombre_apellido LIKE '%$valor'";
 		}
 	}
-	$sql = "SELECT * FROM personal $where ORDER BY nombre_apellido ASC";
+	$sql = "SELECT * FROM cliente $where ORDER BY nombre_apellido ASC";
 	$resultado = $conn->query($sql);
 	
 ?>
@@ -27,7 +27,7 @@
 		
 		<div class="container">
 			<div class="row">
-				<h2 style="text-align:center">PERSONAL</h2>
+				<h2 style="text-align:center">CLIENTE</h2>
 			</div>
 			
 			<div class="row">
@@ -50,10 +50,6 @@
 							<th>ID</th>
 							<th>Nombres y Apellidos</th>
 							<th>DNI</th>
-							<th>Estado Personal</th>
-							<th>Cargo</th>
-							<th>Foto</th>
-							<th>Contraseña</th>
 							<th></th>
 							<th></th>
 
@@ -66,23 +62,6 @@
 								<td><?php echo $row['id']; ?></td>
 								<td><?php echo $row['nombre_apellido']; ?></td>
 								<td><?php echo $row['dni']; ?></td>
-								<td>
-									<?php
-										if($row['estado_personal']=='1') {
-											echo "ACTIVO"; 
-										} else {
-											echo "INACTIVO";
-										}
-									?>
-								</td>
-								<td>
-									<?php
-										$id_cargo = $row['id_cargo'];
-										echo $conn->query("SELECT * FROM cargo WHERE id=$id_cargo")->fetch_array(MYSQLI_ASSOC)['tipo_cargo'];
-									?>
-								</td>
-								<td><?php echo $row['foto']; ?></td>
-								<td><?php echo $row['contrasena']; ?></td>
 								<td><a href="modificar.php?id=<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
 								<td><a href="#" data-href="eliminar.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>

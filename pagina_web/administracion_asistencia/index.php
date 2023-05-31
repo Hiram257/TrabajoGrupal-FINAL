@@ -7,10 +7,10 @@
 	{
 		$valor = $_POST['campo'];
 		if(!empty($valor)){
-			$where = "WHERE nombre_apellido LIKE '%$valor'";
+			$where = "WHERE id_personal LIKE '%$valor'";
 		}
 	}
-	$sql = "SELECT * FROM personal $where ORDER BY nombre_apellido ASC";
+	$sql = "SELECT * FROM asistencia $where ORDER BY fecha ASC";
 	$resultado = $conn->query($sql);
 	
 ?>
@@ -34,7 +34,7 @@
 				<a href="nuevo.php" class="btn btn-primary">Nuevo Registro</a>
 				
 				<form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
-					<b>Nombre: </b><input type="text" id="campo" name="campo" />
+					<b>ID: </b><input type="text" id="campo" name="campo" />
 					<input type="submit" id="enviar" name="enviar" value="Buscar" class="btn btn-info" />
 				</form>
 			</div>
@@ -48,12 +48,11 @@
 						<tr>
 
 							<th>ID</th>
+							<th>ID Personal</th>
 							<th>Nombres y Apellidos</th>
 							<th>DNI</th>
-							<th>Estado Personal</th>
-							<th>Cargo</th>
-							<th>Foto</th>
-							<th>Contraseña</th>
+							<th>Asistencia</th>
+							<th>Fecha</th>
 							<th></th>
 							<th></th>
 
@@ -64,25 +63,29 @@
 						<?php while($row = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
 							<tr>
 								<td><?php echo $row['id']; ?></td>
-								<td><?php echo $row['nombre_apellido']; ?></td>
-								<td><?php echo $row['dni']; ?></td>
+								<td><?php echo $row['id_personal']; ?></td>
 								<td>
 									<?php
-										if($row['estado_personal']=='1') {
-											echo "ACTIVO"; 
+										$id_personal = $row['id_personal'];
+										echo $conn->query("SELECT * FROM personal WHERE id=$id_personal")->fetch_array(MYSQLI_ASSOC)['nombre_apellido'];
+									?>
+								</td>
+								<td>
+									<?php
+										$id_personal = $row['id_personal'];
+										echo $conn->query("SELECT * FROM personal WHERE id=$id_personal")->fetch_array(MYSQLI_ASSOC)['dni'];
+									?>
+								</td>
+								<td>
+									<?php
+										if($row['asistencia']=='1') {
+											echo "PRESENTE"; 
 										} else {
-											echo "INACTIVO";
+											echo "AUSENTE";
 										}
 									?>
 								</td>
-								<td>
-									<?php
-										$id_cargo = $row['id_cargo'];
-										echo $conn->query("SELECT * FROM cargo WHERE id=$id_cargo")->fetch_array(MYSQLI_ASSOC)['tipo_cargo'];
-									?>
-								</td>
-								<td><?php echo $row['foto']; ?></td>
-								<td><?php echo $row['contrasena']; ?></td>
+								<td><?php echo $row['fecha']; ?></td>
 								<td><a href="modificar.php?id=<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
 								<td><a href="#" data-href="eliminar.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>
