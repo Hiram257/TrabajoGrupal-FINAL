@@ -1,6 +1,7 @@
 <?php
 // Establecer la conexión con la base de datos
 include 'conexion.php';
+header("Access-Control-Allow-Origin: *");
 
 // Obtener el valor del parámetro "estado" de la URL
 $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
