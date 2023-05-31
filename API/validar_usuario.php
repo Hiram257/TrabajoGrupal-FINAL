@@ -1,5 +1,6 @@
 <?php
 include 'conexion.php';
+include 'permisos.php';
 
 $dni = isset($_GET['dni']) ? $_GET['dni'] : '';
 $contrasena = isset($_GET['contrasena']) ? $_GET['contrasena'] : '';
