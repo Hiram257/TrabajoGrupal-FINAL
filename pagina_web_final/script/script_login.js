@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const tipoCargo = data[0].tipo_cargo;
             if (tipoCargo === 'venta') {
               // Redirigir a la página de ventas
-              window.location.href = 'https://www.youtube.com/watch?v=1pYwCo-D7Xg&t=1586s';
+              window.location.href = 'pagina_principal.php';
             } else if (tipoCargo === 'administrador') {
               // Redirigir a la página de administrador
               window.location.href = 'https://www.youtube.com/watch?v=bqAD6i8Dlyk';
