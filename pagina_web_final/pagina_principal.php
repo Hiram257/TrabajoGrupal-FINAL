@@ -9,8 +9,8 @@
 <body>
     <div class="sidebar">
         <ul>
-            <li class="menu-option" data-page="listar_proveedores.php"><a href="#">Opción 1</a></li>
-            <li class="menu-option" data-page="pagina2.php"><a href="#">Opción 2</a></li>
+            <li class="menu-option" data-page="listar_proveedores.php"><a href="#">Lista de Proveedores</a></li>
+            <li class="menu-option" data-page="carrito_compras.html"><a href="#">Opción 2</a></li>
             <li class="menu-option" data-page="pagina3.php"><a href="#">Opción 3</a></li>
             <!-- Agrega más opciones según sea necesario -->
         </ul>

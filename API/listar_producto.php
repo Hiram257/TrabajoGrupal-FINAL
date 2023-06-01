@@ -6,7 +6,7 @@ include 'conexion.php';
 $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
 
 // Consulta SQL para obtener los datos filtrados por estado
-$sql = "SELECT id,descripcion,precio,stock,codigo_producto,id_marca,id_familia,nombre,id_ubicacion,estado_producto,id_proveedor FROM producto";
+$sql = "SELECT id,descripcion,precio,stock,codigo_producto,id_marca,id_familia,nombre,id_ubicacion,estado_producto,id_proveedor, imagen FROM producto";
 
 if (!empty($nombre)) {
     $sql .= " WHERE nombre LIKE '%$nombre%'";
@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
             'id_ubicacion' => $row['id_ubicacion'],     
             'estado_producto' => $row['estado_producto'],     
             'id_proveedor' => $row['id_proveedor'],     
- 
+            'imagen' => $row['imagen'], 
 
         );
         $lista_json[] = $item;
