@@ -1,7 +1,6 @@
 <!DOCTYPE html>
  <head>
    
-    <link rel="stylesheet" href="stilos.css">
     <script
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
