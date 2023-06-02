@@ -106,7 +106,7 @@ if (isset($_FILES["foto"])){
             </div>
              <div class="input-field">
         <i class="fa-sharp fa-light fa-heart"></i>            
-            <input id="file" class="input_info" type="file" name="foto">
+            <input id="file" class="modifi" type="file" name="foto">
             </div>
           
 
