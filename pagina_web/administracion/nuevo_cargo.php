@@ -14,7 +14,7 @@
 				<h3 style="text-align:center">NUEVO REGISTRO</h3>
 			</div>
 			
-			<form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off" enctype="multipart/form-data">
+			<form class="form-horizontal" method="POST" action="guardar_cargo.php" autocomplete="off" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="cargo" class="col-sm-2 control-label">Cargo</label>
 					<div class="col-sm-10">
@@ -25,7 +25,7 @@
 				
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<a href="index.php" class="btn btn-default">Regresar</a>
+						<a href="index_cargo.php" class="btn btn-default">Regresar</a>
 						<button type="submit" class="btn btn-primary">Guardar</button>
 					</div>
 				</div>

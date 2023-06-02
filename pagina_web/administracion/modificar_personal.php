@@ -4,9 +4,9 @@
 	$id = $_GET['id'];
 	
 	$sql = "SELECT * FROM personal WHERE id = '$id'";
-	$resultado = $conn->query($sql);
+	$resultado = $con->query($sql);
 	$row = $resultado->fetch_array(MYSQLI_ASSOC);
-	$cargos = $conn->query("SELECT * from cargo");
+	$cargos = $con->query("SELECT * from cargo");
 ?>
 <html lang="es">
 	<head>
@@ -24,7 +24,7 @@
 				<h3 style="text-align:center">MODIFICAR REGISTRO</h3>
 			</div>
 			
-			<form class="form-horizontal" method="POST" action="update.php" autocomplete="off" enctype="multipart/form-data">
+			<form class="form-horizontal" method="POST" action="update_personal.php" autocomplete="off" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="nombre" class="col-sm-2 control-label">Nombre y Apellidos</label>
 					<div class="col-sm-10">
@@ -78,7 +78,7 @@
 						
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<a href="index.php" class="btn btn-default">Regresar</a>
+						<a href="index_personal.php" class="btn btn-default">Regresar</a>
 						<button type="submit" class="btn btn-primary">Guardar</button>
 					</div>
 				</div>

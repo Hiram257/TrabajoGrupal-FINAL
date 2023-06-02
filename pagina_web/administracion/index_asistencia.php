@@ -11,7 +11,7 @@
 		}
 	}
 	$sql = "SELECT * FROM asistencia $where ORDER BY fecha ASC";
-	$resultado = $conn->query($sql);
+	$resultado = $con->query($sql);
 	
 ?>
 <html lang="es">
@@ -31,7 +31,7 @@
 			</div>
 			
 			<div class="row">
-				<a href="nuevo.php" class="btn btn-primary">Nuevo Registro</a>
+				<a href="nuevo_asistencia.php" class="btn btn-primary">Nuevo Registro</a>
 				
 				<form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
 					<b>ID: </b><input type="text" id="campo" name="campo" />
@@ -67,13 +67,13 @@
 								<td>
 									<?php
 										$id_personal = $row['id_personal'];
-										echo $conn->query("SELECT * FROM personal WHERE id=$id_personal")->fetch_array(MYSQLI_ASSOC)['nombre_apellido'];
+										echo $con->query("SELECT * FROM personal WHERE id=$id_personal")->fetch_array(MYSQLI_ASSOC)['nombre_apellido'];
 									?>
 								</td>
 								<td>
 									<?php
 										$id_personal = $row['id_personal'];
-										echo $conn->query("SELECT * FROM personal WHERE id=$id_personal")->fetch_array(MYSQLI_ASSOC)['dni'];
+										echo $con->query("SELECT * FROM personal WHERE id=$id_personal")->fetch_array(MYSQLI_ASSOC)['dni'];
 									?>
 								</td>
 								<td>
@@ -86,8 +86,8 @@
 									?>
 								</td>
 								<td><?php echo $row['fecha']; ?></td>
-								<td><a href="modificar.php?id=<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
-								<td><a href="#" data-href="eliminar.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+								<td><a href="modificar_asistencia.php?id=<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+								<td><a href="#" data-href="eliminar_asistencia.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>
 						<?php } ?>
 					</tbody>

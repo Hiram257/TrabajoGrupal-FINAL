@@ -11,7 +11,7 @@
 		}
 	}
 	$sql = "SELECT * FROM personal $where ORDER BY nombre_apellido ASC";
-	$resultado = $conn->query($sql);
+	$resultado = $con->query($sql);
 	
 ?>
 <html lang="es">
@@ -31,7 +31,7 @@
 			</div>
 			
 			<div class="row">
-				<a href="nuevo.php" class="btn btn-primary">Nuevo Registro</a>
+				<a href="nuevo_personal.php" class="btn btn-primary">Nuevo Registro</a>
 				
 				<form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
 					<b>Nombre: </b><input type="text" id="campo" name="campo" />
@@ -78,13 +78,13 @@
 								<td>
 									<?php
 										$id_cargo = $row['id_cargo'];
-										echo $conn->query("SELECT * FROM cargo WHERE id=$id_cargo")->fetch_array(MYSQLI_ASSOC)['tipo_cargo'];
+										echo $con->query("SELECT * FROM cargo WHERE id=$id_cargo")->fetch_array(MYSQLI_ASSOC)['tipo_cargo'];
 									?>
 								</td>
 								<td><?php echo $row['foto']; ?></td>
 								<td><?php echo $row['contrasena']; ?></td>
-								<td><a href="modificar.php?id=<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
-								<td><a href="#" data-href="eliminar.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+								<td><a href="modificar_personal.php?id=<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+								<td><a href="#" data-href="eliminar_personal.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>
 						<?php } ?>
 					</tbody>

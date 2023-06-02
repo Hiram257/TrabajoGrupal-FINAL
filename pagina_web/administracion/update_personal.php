@@ -32,7 +32,7 @@ if (isset($_FILES['foto']) && isset($_POST['dni'])) {
 	
 	  $sql = "UPDATE personal SET dni = '$dni', foto = '$foto', nombre_apellido = '$nombre_apellido', contrasena = '$contrasena', estado_personal = $estado_personal, id_cargo = $id_cargo WHERE id = $id";
 	
-	  $resultado = $conn->query($sql);
+	  $resultado = $con->query($sql);
   
 	} else {
   
@@ -67,7 +67,7 @@ if (isset($_FILES['foto']) && isset($_POST['dni'])) {
 				<h3>ERROR AL MODIFICAR</h3>
 				<?php } ?>
 				
-				<a href="index.php" class="btn btn-primary">Regresar</a>
+				<a href="index_personal.php" class="btn btn-primary">Regresar</a>
 				
 				</div>
 			</div>

@@ -8,7 +8,7 @@
 	
 	  $sql = "UPDATE cargo SET tipo_cargo = '$cargo' WHERE id = $id";
 	
-	  $resultado = $conn->query($sql);
+	  $resultado = $con->query($sql);
 
 	
 ?>
@@ -33,7 +33,7 @@
 				<h3>ERROR AL MODIFICAR</h3>
 				<?php } ?>
 				
-				<a href="index.php" class="btn btn-primary">Regresar</a>
+				<a href="index_cargo.php" class="btn btn-primary">Regresar</a>
 				
 				</div>
 			</div>

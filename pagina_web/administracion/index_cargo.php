@@ -11,7 +11,7 @@
 		}
 	}
 	$sql = "SELECT * FROM cargo $where ORDER BY tipo_cargo ASC";
-	$resultado = $conn->query($sql);
+	$resultado = $con->query($sql);
 	
 ?>
 <html lang="es">
@@ -31,7 +31,7 @@
 			</div>
 			
 			<div class="row">
-				<a href="nuevo.php" class="btn btn-primary">Nuevo Registro</a>
+				<a href="nuevo_cargo.php" class="btn btn-primary">Nuevo Registro</a>
 				
 				<form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
 					<b>Cargo: </b><input type="text" id="campo" name="campo" />
@@ -60,8 +60,8 @@
 							<tr>
 								<td><?php echo $row['id']; ?></td>
 								<td><?php echo $row['tipo_cargo']; ?></td>
-								<td><a href="modificar.php?id=<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
-								<td><a href="#" data-href="eliminar.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash"></span></a></td>
+								<td><a href="modificar_cargo.php?id=<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil"></span></a></td>
+								<td><a href="#" data-href="eliminar_cargo.php?id=<?php echo $row['id']; ?>" data-toggle="modal" data-target="#confirm-delete"><span class="glyphicon glyphicon-trash"></span></a></td>
 							</tr>
 						<?php } ?>
 					</tbody>
