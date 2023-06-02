@@ -110,7 +110,8 @@ if (isset($_FILES["foto"])){
           
 
 <button onclick="driner()" class="btn solid input_info" class="register_btn" type="submit">Registrar</button>            
-         
+         </form>
+
         </div>
       </div>
 
@@ -120,14 +121,14 @@ if (isset($_FILES["foto"])){
          
          
           </div>
-          <img src="img/log.svg" class="image" alt="" />
+         <!-- Agregar el nombre de la carpeta del fondo -->
+          <img src="fondo_producto/log.svg" class="image" alt="" />
         </div>
         <div class="panel right-panel">
           <div class="content">
            
              
           </div>
-          <img src="img/register.svg" class="image" alt="" />
         </div>
       </div>
     </div>
