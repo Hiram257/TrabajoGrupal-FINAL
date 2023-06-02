@@ -5,7 +5,7 @@
 	$id = $_GET['id'];
 	
 	$sql = "DELETE FROM cliente WHERE id = '$id'";
-	$resultado = $conn->query($sql);
+	$resultado = $con->query($sql);
 	
 ?>
 
