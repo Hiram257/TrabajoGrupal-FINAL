@@ -48,7 +48,8 @@ if (isset($_FILES["foto"])){
       <div class="forms-container">
         <div class="signin-signup">
          <form action="formulario_productos.php" method="post" class="sign-in-form" enctype="multipart/form-data" id="registroProductos">
- 
+            <h2>Registro de productos</h2>
+
              <div class="input-field">
         <i class="fa-sharp fa-light fa-heart"></i>         
    <input id="descripcion" class="input_info" type="text" placeholder="Descripcion">
