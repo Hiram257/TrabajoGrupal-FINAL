@@ -5,7 +5,7 @@
       src="https://kit.fontawesome.com/64d58efce2.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="estilosDeProductos.css" />
     <title>Document</title>
 </head>
 
