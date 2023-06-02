@@ -178,7 +178,7 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc, id, precio_fijo) {
       <div class="carrito-item">
           <img src="${imagenSrc}" width="80px" alt="">
           <div class="carrito-item-detalles">
-              <span class="carrito-item-id">${id}</span>
+              <span class="carrito-item-id"></span>
               <span class="carrito-item-titulo">${titulo}</span>
               <span class="carrito-item-precio_fijo">${precio_fijo}</span>
               <div class="selector-cantidad">
