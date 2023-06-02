@@ -17,7 +17,8 @@ if (isset($data['descripcion'])
 && isset($data['nombre'])
 && isset($data['id_ubicacion'])
 && isset($data['estado_producto'])
-&& isset($data['id_proveedor'])) {
+&& isset($data['id_proveedor'])
+&& isset($data['imagen'])) {
 
     //asignacion de los valores
     $discripcion = $data['descripcion'];
@@ -30,9 +31,10 @@ if (isset($data['descripcion'])
     $id_ubicacion = $data['id_ubicacion'];
     $estado_producto = $data['estado_producto'];
     $id_proveedor = $data['id_proveedor'];
+    $imagen = $data['imagen'];
 
     // Insertar los datos en la tabla "empresas"
-    $sql = "INSERT INTO producto (descripcion,precio,stock,codigo_producto,id_marca,id_familia,nombre,id_ubicacion,estado_producto,id_proveedor) VALUES ('$discripcion','$precio','$stock','$codigo_producto','$id_marca','$id_familia','$nombre','$id_ubicacion','$estado_producto','$id_proveedor')";
+    $sql = "INSERT INTO producto (descripcion,precio,stock,codigo_producto,id_marca,id_familia,nombre,id_ubicacion,estado_producto,id_proveedor,imagen) VALUES ('$discripcion','$precio','$stock','$codigo_producto','$id_marca','$id_familia','$nombre','$id_ubicacion','$estado_producto','$id_proveedor','$imagen')";
     if ($conn->query($sql) === TRUE) {
         echo "los datos de la tabla productos de interes se guardo correctamente.";
     } else {
@@ -45,3 +47,4 @@ if (isset($data['descripcion'])
 // Cerrar la conexión con la base de datos
 $conn->close();
 ?>
+
