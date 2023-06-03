@@ -1,0 +1,41 @@
+Detalle de caso de uso - Realizar venta:
+
+Actores involucrados:
+- Vendedor
+
+Descripción:
+El vendedor registra una venta en el sistema de ventas.
+
+Flujo principal de eventos:
+1. El vendedor selecciona la opción "Realizar venta" en el sistema.
+2. El sistema muestra la interfaz para ingresar los detalles de la venta.
+3. El vendedor ingresa los productos y las cantidades vendidas.
+4. El sistema actualiza el stock de los productos vendidos.
+5. El sistema genera una factura de venta.
+6. El sistema registra la venta en el historial.
+
+Detalles de caso de uso - Ver stock:
+
+Actores involucrados:
+- Vendedor
+
+Descripción:
+El vendedor consulta el stock de los productos en el sistema.
+
+Flujo principal de eventos:
+1. El vendedor selecciona la opción "Ver stock" en el sistema.
+2. El sistema muestra el listado de productos y sus cantidades disponibles.
+
+Detalles de caso de uso - Generar reportes:
+
+Actores involucrados:
+- Vendedor
+
+Descripción:
+El vendedor genera reportes de ventas y ganancias en el sistema.
+
+Flujo principal de eventos:
+1. El vendedor selecciona la opción "Generar reportes" en el sistema.
+2. El sistema muestra las opciones de reportes disponibles.
+3. El vendedor selecciona el tipo de reporte que desea generar (ventas o ganancias).
+4. El sistema genera el reporte solicitado y lo muestra al vendedor.

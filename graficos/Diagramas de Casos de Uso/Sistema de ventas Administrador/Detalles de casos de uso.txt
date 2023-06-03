@@ -1,0 +1,27 @@
+Detalle de caso de uso - Administrar productos:
+
+Actores involucrados:
+- Administrador
+
+Descripción:
+El administrador gestiona los productos disponibles en el sistema.
+
+Flujo principal de eventos:
+1. El administrador selecciona la opción "Administrar productos" en el sistema.
+2. El sistema muestra el listado de productos y las opciones de gestión disponibles.
+3. El administrador puede agregar un nuevo producto, modificar un producto existente o eliminar un producto.
+4. El sistema actualiza la información de los productos según las acciones realizadas.
+
+Detalles de caso de uso - Ver informes de ventas:
+
+Actores involucrados:
+- Administrador
+
+Descripción:
+El administrador consulta informes de ventas en el sistema.
+
+Flujo principal de eventos:
+1. El administrador selecciona la opción "Ver informes ventas" en el sistema.
+2. El sistema muestra las opciones de informes disponibles.
+3. El administrador selecciona el tipo de informe que desea ver (producto más vendido, producto con mayor ganancia, etc.).
+4. El sistema genera el informe solicitado y lo muestra al administrador.

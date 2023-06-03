@@ -1,0 +1,14 @@
+Detalle de caso de uso - Acceso remoto:
+
+Actores involucrados:
+- Remoto
+
+Descripción:
+El usuario remoto accede al sistema de ventas desde cualquier lugar.
+
+Flujo principal de eventos:
+1. El usuario remoto inicia sesión en el sistema de ventas desde un dispositivo remoto.
+2. El sistema verifica las credenciales del usuario y le otorga acceso.
+3. El usuario remoto puede realizar las mismas acciones que un vendedor, como realizar ventas, verificar el stock y generar reportes.
+4. Las acciones realizadas por el usuario remoto se registran en el sistema de ventas de manera similar a las acciones realizadas por un vendedor.
+
