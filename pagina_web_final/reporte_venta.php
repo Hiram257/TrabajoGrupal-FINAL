@@ -98,7 +98,7 @@
                 </thead>
               <?php
               include('conexion.php');
-              $sqlFiltros = ('SELECT * FROM venta ORDER BY fecha_hora ASC');
+              $sqlFiltros = ('SELECT * FROM venta ORDER BY fecha ASC');
               $query = mysqli_query($con, $sqlFiltros);
               $i =1;
                 while ($dataRow = mysqli_fetch_array($query)) { ?>
@@ -110,7 +110,7 @@
 
                     <td><?php echo $dataRow['numero_serie'] ; ?></td>
                     <td><?php echo $dataRow['total'] ; ?></td>
-                    <td><?php echo $dataRow['fecha_hora'] ; ?></td>
+                    <td><?php echo $dataRow['fecha'] ; ?></td>
                     <td><?php echo $dataRow['cantidad_producto'] ; ?></td>
                     <td><?php echo $dataRow['estado_pago'] ; ?></td>
 

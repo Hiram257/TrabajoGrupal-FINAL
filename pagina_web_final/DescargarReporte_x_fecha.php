@@ -31,7 +31,7 @@ $fechaInit = date("Y-m-d", strtotime($_POST['fecha_ingreso']));
 $fechaFin  = date("Y-m-d", strtotime($_POST['fechaFin']));
 
 
-$sqlTrabajadores = ("SELECT * FROM venta WHERE (fecha_hora>='$fechaInit' and fecha_hora<='$fechaFin') ORDER BY fecha_hora ASC");
+$sqlTrabajadores = ("SELECT * FROM venta WHERE (fecha>='$fechaInit' and fecha<='$fechaFin') ORDER BY fecha ASC");
 $query = mysqli_query($con, $sqlTrabajadores);
 ?>
 
@@ -67,7 +67,7 @@ $i =1;
             <td><?php echo $dataRow['id_personal']; ?></td>
             <td><?php echo $dataRow['numero_serie'] ; ?></td>
             <td><?php echo $dataRow['total'] ; ?></td>
-            <td><?php echo $dataRow['fecha_hora'] ; ?></td>
+            <td><?php echo $dataRow['fecha'] ; ?></td>
              <td><?php echo $dataRow['cantidad_producto'] ; ?></td>
             <td><?php echo $dataRow['estado_pago'] ; ?></td>
         </tr>

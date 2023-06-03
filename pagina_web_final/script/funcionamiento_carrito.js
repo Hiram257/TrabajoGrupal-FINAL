@@ -1,12 +1,12 @@
-fetch('http://localhost/tienda_computo/TrabajoGrupal-FINAL/pagina_web/carrito_compras_funcional_api/listar_producto.php')
+fetch('http://localhost/tienda_computo/TrabajoGrupal-FINAL/API/listar_producto.php')
     .then(resultado=> resultado.json()) 
     .then(respuesta=>{
       var tabla = document.querySelector('.contenedor-items');
 
         respuesta.forEach(elemento=>{
         tabla.innerHTML+=`<div class="item">
-      <span class="titulo-item">${elemento.descripcion}</span>
-      <img src="${elemento.imagen}" alt="" class="img-item">
+      <span class="titulo-item">${elemento.nombre}</span>
+      <img src="fotos_productos/${elemento.imagen}" alt="" class="img-item">
       <span class="precio-item">${elemento.precio}</span>
       <span class="id_item">${elemento.id}</span>
       <button class="boton-item">Agregar al Carrito</button>
@@ -178,7 +178,7 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc, id, precio_fijo) {
       <div class="carrito-item">
           <img src="${imagenSrc}" width="80px" alt="">
           <div class="carrito-item-detalles">
-              <span class="carrito-item-id">${id}</span>
+              <span class="carrito-item-id"></span>
               <span class="carrito-item-titulo">${titulo}</span>
               <span class="carrito-item-precio_fijo">${precio_fijo}</span>
               <div class="selector-cantidad">

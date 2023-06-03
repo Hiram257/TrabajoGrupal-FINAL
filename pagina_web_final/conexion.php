@@ -1,12 +1,12 @@
 <?php
-/**conexion a BD */
-$usuario  = "root";
-$password = "rootleon";
-$servidor = "localhost";
-$basededatos = "db_tienda_computo";
-$con = mysqli_connect($servidor, $usuario, $password) or die("No se ha podido conectar al Servidor");
-mysqli_query($con,"SET SESSION collation_connection ='utf8_unicode_ci'");
-$db = mysqli_select_db($con, $basededatos) or die("Upps! Error en conectar a la Base de Datos");
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "db_tienda_computo";
 
+$con = new mysqli($servername, $username, $password, $dbname);
 
+if ($con->connect_error) {
+    die("Error en la conexión a la base de datos: " . $conn->connect_error);
+}
 ?>

@@ -30,7 +30,7 @@ if (isset($_FILES["foto"])){
     else{
     $src=$carpeta.$nombre;
     move_uploaded_file($ruta,$src);
-    $imagen="fotos/".$nombre;
+    $imagen="fotos_productos/".$nombre;
 }
 }
 
@@ -44,7 +44,7 @@ if (isset($_FILES["foto"])){
   <div class="container_wrapper">
     <div class="container">
         <h2>Registro <span>productos</span> </h2>
-        <form action="formulario_productos.php" method="post" enctype="multipart/form-data" id="registroProductos" >
+        <form action="registro_producto.php" method="post" enctype="multipart/form-data" id="registroProductos" >
             <input id="descripcion" class="input_info" type="text" placeholder="Descripcion">
             <input id="precio" class="input_info" type="text" placeholder="Precio">
 
