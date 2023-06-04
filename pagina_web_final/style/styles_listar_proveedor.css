@@ -1,0 +1,84 @@
+/* styles.css */
+
+/* Estilos para el contenedor principal */
+body {
+  
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos para el título */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Estilos para el contenedor de búsqueda */
+.buscar-container {
+  display: flex;
+  
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+botonBuscar {
+  margin-right: 30px;
+}
+
+botonGuardar {
+  margin-left: 30px;
+}
+
+.buscar-container input[type="text"] {
+  margin-right: 10px;
+  flex: 1;
+  width: 80%;
+  max-width: 300px;
+}
+
+/* Estilos para el contenedor de la tabla */
+.table-container {
+  overflow-x: auto;
+}
+
+/* Estilos para la tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th, table td {
+  padding: 10px;
+  
+  border-bottom: 1px solid #ddd;
+}
+
+/* Estilos para botón de búsqueda */
+button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Estilos para los botones de acciones */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/* Estilos responsivos */
+@media screen and (max-width: 600px) {
+  .buscar-container {
+      flex-direction: column;
+  }
+
+  .buscar-container input[type="text"] {
+      margin-right: 0;
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: none;
+  }
+}
