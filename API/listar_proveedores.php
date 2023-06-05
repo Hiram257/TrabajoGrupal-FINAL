@@ -7,10 +7,10 @@ include 'permisos.php';
 $nombre = isset($_GET['nombre']) ? $_GET['nombre'] : '';
 
 // Consulta SQL para obtener los datos filtrados por estado
-$sql = "SELECT id, nombre, direccion, celular, tipo_provedor, red_social FROM provedores";
+$sql = "SELECT id, nombre, direccion, celular, tipo_provedor, red_social FROM provedores WHERE estado =1";
 
 if (!empty($nombre)) {
-    $sql .= " WHERE nombre LIKE '%$nombre%'";
+    $sql .= " AND nombre LIKE '%$nombre%'";
 }
 
 $result = $conn->query($sql);

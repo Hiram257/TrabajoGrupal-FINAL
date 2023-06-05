@@ -13,7 +13,7 @@ $json = file_get_contents('php://input');
 $data = json_decode($json, true);
 
 // Validar los datos recibidos
-if (isset($data['id']) && isset($data['nombre']) && isset($data['direccion']) && isset($data['celular']) && isset($data['tipo_proveedor']) && isset($data['red_social'])) {
+if (isset($data['id']) && isset($data['nombre']) && isset($data['direccion']) && isset($data['celular']) && isset($data['tipo_proveedor']) && isset($data['red_social']) && isset($data['estado']) ) {
 
     // Asignar los valores a las variables
     $id = $data['id'];
@@ -22,9 +22,10 @@ if (isset($data['id']) && isset($data['nombre']) && isset($data['direccion']) &&
     $celular = $data['celular'];
     $tipo_proveedor = $data['tipo_proveedor'];
     $red_social = $data['red_social'];
+    $estado = $data['estado'];
 
     // Actualizar los datos en la tabla "provedores"
-    $sql = "UPDATE provedores SET nombre='$nombre', direccion='$direccion', celular='$celular', tipo_provedor='$tipo_proveedor', red_social='$red_social' WHERE id='$id'";
+    $sql = "UPDATE provedores SET nombre='$nombre', direccion='$direccion', celular='$celular', tipo_provedor='$tipo_proveedor', red_social='$red_social',estado='$estado' WHERE id='$id'";
 
     if ($conn->query($sql) === TRUE) {
         // Éxito en la actualización, enviar respuesta al cliente

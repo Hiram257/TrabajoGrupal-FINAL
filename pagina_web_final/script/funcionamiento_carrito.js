@@ -61,8 +61,8 @@ function pagarClicked() {
 
   var dni = document.getElementById("dni").value;
   var nombreApellido = document.getElementById("nombre").value;
-  var idPersonal = document.getElementById("id_personal").value;
-  var numeroSerie = document.getElementById("numero_serie").value;
+  var idPersonal = 1
+  var numeroSerie = dni + "-" +idPersonal;
  
   var totalElemento = document.querySelector('.carrito-precio-total');
   var total = totalElemento.innerText;
@@ -186,7 +186,7 @@ function agregarItemAlCarrito(titulo, precio, imagenSrc, id, precio_fijo) {
                   <input type="text" value="1" class="carrito-item-cantidad" disabled>
                   <i class="fa-solid fa-plus sumar-cantidad"></i>
               </div>
-              <span class="carrito-item-precio" id="precio_total">${precioNumero.toLocaleString("es")},00</span>
+              <span class="carrito-item-precio" id="precio_total">${precioNumero.toLocaleString("es")}</span>
           </div>
           <button class="btn-eliminar">
               <i class="fa-solid fa-trash"></i>
@@ -226,7 +226,7 @@ function sumarCantidad(event) {
 
   var precioTotalElemento = selector.parentElement.querySelector('.carrito-item-precio');
   var precioTotal = precioFijo * cantidadActual;
-  precioTotalElemento.innerText = precioTotal.toLocaleString("es") + ",00";
+  precioTotalElemento.innerText = precioTotal.toLocaleString("es");
 
   actualizarTotalCarrito();
 }
@@ -248,7 +248,7 @@ function restarCantidad(event) {
 
     var precioTotalElemento = selector.parentElement.querySelector('.carrito-item-precio');
     var precioTotal = precioFijo * cantidadActual;
-    precioTotalElemento.innerText = precioTotal.toLocaleString("es") + ",00";
+    precioTotalElemento.innerText = precioTotal.toLocaleString("es");
 
     actualizarTotalCarrito();
   }
@@ -295,7 +295,7 @@ function actualizarTotalCarrito() {
   total = Math.round(total * 100) / 100;
 
   var totalElemento = document.getElementsByClassName('carrito-precio-total')[0];
-  totalElemento.innerText = total.toLocaleString("es") + ",00";
+  totalElemento.innerText = total.toLocaleString("es") ;
 }
     }
 

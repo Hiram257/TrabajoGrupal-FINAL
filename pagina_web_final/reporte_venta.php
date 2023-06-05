@@ -98,15 +98,15 @@
                 </thead>
               <?php
               include('conexion.php');
-              $sqlFiltros = ('SELECT * FROM venta ORDER BY fecha ASC');
+              $sqlFiltros = ('SELECT * from vista_reporte_venta ORDER BY fecha ASC');
               $query = mysqli_query($con, $sqlFiltros);
               $i =1;
                 while ($dataRow = mysqli_fetch_array($query)) { ?>
                 <tbody>
                   <tr>
                     <td><?php echo $i++; ?></td>
-                    <td><?php echo $dataRow['id_cliente'] ; ?></td>
-                    <td><?php echo $dataRow['id_personal'] ; ?></td>
+                    <td><?php echo $dataRow['dato_cliente'] ; ?></td>
+                    <td><?php echo $dataRow['dato_empleado'] ; ?></td>
 
                     <td><?php echo $dataRow['numero_serie'] ; ?></td>
                     <td><?php echo $dataRow['total'] ; ?></td>

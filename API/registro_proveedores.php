@@ -23,7 +23,7 @@ if (isset($data['nombre']) && isset($data['direccion']) && isset($data['celular'
     $red_social = $data['red_social'];
 
     // Insertar los datos en la tabla "provedores"
-    $sql = "INSERT INTO provedores (nombre, direccion, celular, tipo_provedor, red_social) VALUES ('$nombre', '$direccion', '$celular', '$tipo_proveedor', '$red_social')";
+    $sql = "INSERT INTO provedores (nombre, direccion, celular, tipo_provedor, red_social,estado) VALUES ('$nombre', '$direccion', '$celular', '$tipo_proveedor', '$red_social',1)";
 
     if ($conn->query($sql) === TRUE) {
         // Éxito en la inserción, enviar respuesta al cliente
