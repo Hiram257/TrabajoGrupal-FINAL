@@ -12,13 +12,12 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONException
 
-class MainActivity3 : AppCompatActivity() {
+class productos : AppCompatActivity() {
     var tbUsuarios: TableLayout?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        tbUsuarios=findViewById(R.id.tbUsuarios)
+        tbUsuarios=findViewById(R.id.usuario22)
 
         cargaTabla()
     }
@@ -51,7 +50,6 @@ class MainActivity3 : AppCompatActivity() {
         )
         queue.add(jsonObjectRequest)
     }
-
 
 
 

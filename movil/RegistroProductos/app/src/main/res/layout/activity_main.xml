@@ -6,27 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <EditText
-        android:id="@+id/codigo_producto"
-        android:layout_width="191dp"
-        android:layout_height="52dp"
-        android:ems="10"
-        android:fontFamily="sans-serif-black"
-        android:hint="Codigo producto"
-        android:inputType="textPersonName"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.121"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36" />
 
+  <EditText
+      android:id="@+id/codigo_producto"
+      android:layout_width="191dp"
+      android:layout_height="52dp"
+      android:ems="10"
+      android:fontFamily="sans-serif-black"
+      android:hint="Codigo producto"
+      android:inputType="textPersonName"
+      android:textSize="24sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.154"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.36" />
 
   <androidx.appcompat.widget.AppCompatEditText
+      android:id="@+id/imagen"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
 
+      android:layout_height="wrap_content"
       android:fontFamily="sans-serif-black"
       android:hint="Nombre Imagen"
       android:textSize="24sp"
@@ -199,7 +200,7 @@
       app:layout_constraintVertical_bias="0.96" />
 
   <androidx.appcompat.widget.AppCompatButton
-      android:id="@+id/btnSubirFoto"
+      android:id="@+id/btnSelectImage"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_margin="4dp"
@@ -212,7 +213,7 @@
       app:layout_constraintVertical_bias="0.853" />
 
   <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/buthon2"
+        android:id="@+id/volver"
         android:layout_width="140dp"
         android:layout_height="54dp"
         android:background="@color/purple_200"
@@ -228,18 +229,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.961" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-black"
-        android:text="Registro"
-        android:textColor="#F40000"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.453"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046" />
+  <TextView
+      android:id="@+id/textView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:fontFamily="sans-serif-black"
+      android:text="Registro"
+      android:textColor="#F40000"
+      android:textSize="34sp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.58"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.058" />
+
+  <androidx.appcompat.widget.AppCompatImageView
+      android:id="@+id/imageView"
+      android:layout_width="104dp"
+      android:layout_height="86dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.156"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.024" />
 </androidx.constraintlayout.widget.ConstraintLayout>

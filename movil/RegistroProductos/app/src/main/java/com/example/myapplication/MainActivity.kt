@@ -1,12 +1,12 @@
-    package com.example.myapplication
-
+package com.example.myapplication
+    import java.io.FileOutputStream
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
@@ -26,10 +26,15 @@ import com.android.volley.toolbox.Volley
         var id_proveedor: EditText? = null
         var imagenes: EditText? = null
 
+        private val PICK_IMAGE_REQUEST = 1
 
+        private lateinit var btnSelectImage: Button
+        private lateinit var imageView: ImageView
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.activity_main)
+            val volver =findViewById<Button>(R.id.volver)
+
             descripcion = findViewById(R.id.discripcion)
             precio = findViewById(R.id.precio)
             stock = findViewById(R.id.stock)
@@ -42,7 +47,20 @@ import com.android.volley.toolbox.Volley
             id_proveedor = findViewById(R.id.id_provedor)
             imagenes = findViewById(R.id.imagen)
 
+            btnSelectImage = findViewById(R.id.btnSelectImage)
+            imageView = findViewById(R.id.imageView)
+
+            btnSelectImage.setOnClickListener {
+                val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                startActivityForResult(intent, PICK_IMAGE_REQUEST)
+            }
+            volver.setOnClickListener {
+                volver1();
+            }
         }
+
+
+
                 fun clickBtnInsertar(view:View){
                 val url = "http://192.168.0.107/tienda_computo/TrabajoGrupal-FINAL/API/insertar.php"
                 val queue=Volley.newRequestQueue(this)
@@ -72,6 +90,27 @@ import com.android.volley.toolbox.Volley
                 }
                 queue.add(resultadoPost)
             }
+        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+            super.onActivityResult(requestCode, resultCode, data)
+
+            if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {
+                val selectedImageUri = data.data
+                imageView.setImageURI(selectedImageUri)
+
+                // Guardar la imagen en una carpeta específica
+                val imageFilePath = "/ruta/hacia/la/carpeta/destino/nombre_imagen.jpg"
+                val outputStream = contentResolver.openOutputStream(Uri.parse(imageFilePath))
+                val inputStream = selectedImageUri?.let { contentResolver.openInputStream(it) }
+                outputStream?.let { inputStream?.copyTo(it) }
+                outputStream?.close()
+                inputStream?.close()
+            }
+
+        }
+        fun volver1(){
+            val volver = Intent(this,Inicio::class.java)
+            startActivity(volver)
+        }
         }
 
 
