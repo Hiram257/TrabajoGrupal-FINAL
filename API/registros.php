@@ -1,7 +1,7 @@
 <?php
 if($_SERVER['REQUEST_METHOD']=="GET"){
     require_once 'conexion.php';
-    $query="SELECT * FROM producto";
+    $query="SELECT * FROM producto ORDER BY id DESC";
     $resultado=$conn->query($query);
     if($conn->affected_rows>0){
         $json="{\"data\":[";
